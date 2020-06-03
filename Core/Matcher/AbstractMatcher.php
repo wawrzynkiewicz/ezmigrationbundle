@@ -119,12 +119,14 @@ abstract class AbstractMatcher implements MatcherInterface, EnumerableMatcherInt
      */
     public function matchOne(array $conditions)
     {
-        $results = $this->match($conditions);
+        $results = $this->match($conditions)->getIterator();
         $count = count($results);
         if ($count !== 1) {
             throw new InvalidMatchResultsNumberException("Found $count " . $this->returns . " when expected exactly only one to match the conditions");
         }
-        return reset($results);
+        reset($results);
+
+        return $results->current();
     }
 
     /**

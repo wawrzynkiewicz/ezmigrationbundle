@@ -56,12 +56,14 @@ class ContentMatcher extends QueryBasedMatcher implements SortingMatcherInterfac
      */
     public function matchOne(array $conditions, array $sort = array(), $offset = 0)
     {
-        $results = $this->match($conditions, $sort, $offset, 2);
+        $results = $this->match($conditions, $sort, $offset, 2)->getIterator();
         $count = count($results);
         if ($count !== 1) {
             throw new InvalidMatchResultsNumberException("Found $count " . $this->returns . " when expected exactly only one to match the conditions");
         }
-        return reset($results);
+        reset($results);
+        
+        return $results->current();
     }
 
     /**
