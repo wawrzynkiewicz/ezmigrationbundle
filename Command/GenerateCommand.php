@@ -280,7 +280,7 @@ EOT
 
                 // allow event handlers to replace data
                 $event = new MigrationGeneratedEvent($migrationType, $migrationMode, $fileType, $data, $filePath, $matchCondition, $context);
-                $this->getContainer()->get('event_dispatcher')->dispatch($this->eventName, $event);
+                $this->getContainer()->get('event_dispatcher')->dispatch($event);
                 $data = $event->getData();
                 $filePath = $event->getFile();
 
