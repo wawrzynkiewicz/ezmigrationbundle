@@ -21,13 +21,11 @@
             "role": "Original author"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": "^7.3",
         "ext-pdo": "*",
-        "ezsystems/ezplatform-kernel": "^1.0@dev",
-        "ezsystems/doctrine-dbal-schema": "^1.0@dev",
+        "ezsystems/ezplatform-kernel": "^1.0",
+        "ezsystems/doctrine-dbal-schema": "^1.0",
         "mtdowling/jmespath.php": "2.*",
         "nikic/php-parser": "^4.2.2",
         "symfony/process": "*",
