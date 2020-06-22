@@ -26,7 +26,7 @@
     "require": {
         "php": "^7.3",
         "ext-pdo": "*",
-        "ezsystems/ezpublish-kernel": "^8.0@dev",
+        "ezsystems/ezplatform-kernel": "^1.0@dev",
         "ezsystems/doctrine-dbal-schema": "^1.0@dev",
         "mtdowling/jmespath.php": "2.*",
         "nikic/php-parser": "^4.2.2",
