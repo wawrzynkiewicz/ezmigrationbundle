@@ -106,7 +106,7 @@ class RoleManager extends RepositoryExecutor implements MigrationGeneratorInterf
 
                 // Removing all policies so we can add them back.
                 // TODO: Check and update policies instead of remove and add.
-                $policies = $role->getPolicies();
+                $policies = $roleDraft->getPolicies();
                 foreach ($policies as $policy) {
                     $roleService->removePolicyByRoleDraft($roleDraft, $policy);
                 }
@@ -440,7 +440,7 @@ class RoleManager extends RepositoryExecutor implements MigrationGeneratorInterf
         }
 
         $roleService->addPolicyByRoleDraft($roleDraft, $policyCreateStruct);
-        
+
         if (is_callable(array($roleService, 'publishRoleDraft'))) {
             $roleService->publishRoleDraft($roleDraft);
         }
