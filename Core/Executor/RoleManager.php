@@ -111,6 +111,8 @@ class RoleManager extends RepositoryExecutor implements MigrationGeneratorInterf
                     $roleService->removePolicyByRoleDraft($roleDraft, $policy);
                 }
 
+                $roleService->publishRoleDraft($roleDraft);
+
                 foreach ($ymlPolicies as $ymlPolicy) {
                     $this->addPolicy($role, $roleService, $ymlPolicy);
                 }
@@ -123,8 +125,6 @@ class RoleManager extends RepositoryExecutor implements MigrationGeneratorInterf
             if (isset($step->dsl['unassign'])) {
                 $this->unassignRole($role, $roleService, $userService, $step->dsl['unassign']);
             }
-
-            $roleService->publishRoleDraft($roleDraft);
 
             $roleCollection[$key] = $role;
         }
