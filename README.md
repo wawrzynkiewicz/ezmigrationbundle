@@ -1,3 +1,7 @@
+
+# Important note
+This is an internal fork of kaliop migration bundle for use in our demos. It is not supported and will be completely replaced in the future.
+
 Kaliop eZ-Migration Bundle
 ==========================
 
