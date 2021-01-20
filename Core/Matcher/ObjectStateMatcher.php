@@ -90,6 +90,7 @@ class ObjectStateMatcher extends RepositoryMatcher implements KeyMatcherInterfac
 
         foreach ($objectStateIds as $objectStateId) {
             // return unique contents
+            $objectStateId = is_numeric($objectStateId) ? (int)$objectStateId : $objectStateId;
             $objectState = $this->repository->getObjectStateService()->loadObjectState($objectStateId);
             $objectStates[$objectState->id] = $objectState;
         }

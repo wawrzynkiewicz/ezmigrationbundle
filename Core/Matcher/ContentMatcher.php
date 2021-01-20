@@ -177,6 +177,7 @@ class ContentMatcher extends QueryBasedMatcher implements SortingMatcherInterfac
 
         foreach ($contentIds as $contentId) {
             // return unique contents
+            $contentId = is_numeric($contentId) ? (int)$contentId : $contentId;
             $content = $this->repository->getContentService()->loadContent($contentId);
             $contents[$content->contentInfo->id] = $content;
         }
@@ -212,6 +213,7 @@ class ContentMatcher extends QueryBasedMatcher implements SortingMatcherInterfac
         $contentIds = [];
 
         foreach ($locationIds as $locationId) {
+            $locationId = is_numeric($locationId) ? (int)$locationId : $locationId;
             $location = $this->repository->getLocationService()->loadLocation($locationId);
             // return unique ids
             $contentIds[$location->contentId] = $location->contentId;

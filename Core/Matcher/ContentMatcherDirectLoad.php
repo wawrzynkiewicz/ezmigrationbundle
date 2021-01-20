@@ -28,6 +28,7 @@ class ContentMatcherDirectLoad extends ContentMatcher
             switch ($key) {
                 case self::MATCH_CONTENT_ID:
                     foreach($match as $contentId) {
+                        $contentId = is_numeric($contentId) ? (int)$contentId : $contentId;
                         $content = $this->repository->getContentService()->loadContent($contentId);
                         $contents[$content->id] = $content;
                     }

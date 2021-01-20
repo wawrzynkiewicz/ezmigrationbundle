@@ -91,6 +91,7 @@ class UserGroupMatcher extends RepositoryMatcher implements KeyMatcherInterface
 
         foreach ($userGroupIds as $userGroupId) {
             // return unique contents
+            $userGroupId = is_numeric($userGroupId) ? (int)$userGroupId : $userGroupId;
             $userGroup = $this->repository->getUserService()->loadUserGroup($userGroupId);
 
             $userGroups[$userGroup->id] = $userGroup;

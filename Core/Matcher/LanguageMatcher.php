@@ -89,6 +89,7 @@ class LanguageMatcher extends RepositoryMatcher implements KeyMatcherInterface
 
         foreach ($languageIds as $languageId) {
             // return unique contents
+            $languageId = is_numeric($languageId) ? (int)$languageId : $languageId;
             $language = $this->repository->getContentLanguageService()->loadLanguageById($languageId);
             $languages[$language->id] = $language;
         }

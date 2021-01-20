@@ -99,6 +99,7 @@ class UserMatcher extends RepositoryMatcher implements KeyMatcherInterface
 
         foreach ($userIds as $userId) {
             // return unique contents
+            $userId = is_numeric($userId) ? (int)$userId : $userId;
             $user = $this->repository->getUserService()->loadUser($userId);
 
             $users[$user->id] = $user;
