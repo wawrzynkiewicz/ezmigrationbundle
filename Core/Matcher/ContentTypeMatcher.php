@@ -98,6 +98,7 @@ class ContentTypeMatcher extends RepositoryMatcher implements KeyMatcherInterfac
 
         foreach ($contentTypeIds as $contentTypeId) {
             // return unique contents
+            $contentTypeId = is_numeric($contentTypeId) ? (int)$contentTypeId : $contentTypeId;
             $contentType = $this->repository->getContentTypeService()->loadContentType($contentTypeId);
             $contentTypes[$contentType->id] = $contentType;
         }

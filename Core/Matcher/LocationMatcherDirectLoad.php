@@ -27,6 +27,7 @@ class LocationMatcherDirectLoad extends LocationMatcher
             switch ($key) {
                 case self::MATCH_LOCATION_ID:
                     foreach($match as $locationId) {
+                        $locationId = is_numeric($locationId) ? (int)$locationId : $locationId;
                         $location = $this->repository->getLocationService()->loadLocation($locationId);
                         $locations[$location->id] = $location;
                     }

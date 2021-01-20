@@ -164,6 +164,7 @@ class LocationMatcher extends QueryBasedMatcher implements SortingMatcherInterfa
         $locations = [];
 
         foreach ($contentIds as $contentId) {
+            $contentId = is_numeric($contentId) ? (int)$contentId : $contentId;
             $content = $this->repository->getContentService()->loadContent($contentId);
             foreach($this->repository->getLocationService()->loadLocations($content->contentInfo) as $location) {
                 $locations[$location->id] = $location;
@@ -204,6 +205,7 @@ class LocationMatcher extends QueryBasedMatcher implements SortingMatcherInterfa
         $locations = [];
 
         foreach ($locationIds as $locationId) {
+            $locationId = is_numeric($locationId) ? (int)$locationId : $locationId;
             $locations[$locationId] = $this->repository->getLocationService()->loadLocation($locationId);
         }
 

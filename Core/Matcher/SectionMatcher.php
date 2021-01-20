@@ -89,6 +89,7 @@ class SectionMatcher extends RepositoryMatcher implements KeyMatcherInterface
 
         foreach ($sectionIds as $sectionId) {
             // return unique contents
+            $sectionId = is_numeric($sectionId) ? (int)$sectionId : $sectionId;
             $section = $this->repository->getSectionService()->loadSection($sectionId);
             $sections[$section->id] = $section;
         }
